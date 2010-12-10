@@ -5,6 +5,8 @@ Created on Nov 15, 2010
 '''
 import time
 import logging
+import os
+import traceback
 
 from Logging.Logger import getLog
 from Locking.AppLock import getLock
@@ -51,5 +53,5 @@ class GmailResultsFramework:
                 self.checkResults()
                 self.log.info("Done Running Gmail Result Mailer", extra=self.grestags)
             except Exception, err:
-                self.log.critical("Error Checking Results " + str(err), extra=self.grestags)
+                self.log.critical("Error Checking Results " + str(err) + " :: " + traceback.format_exc(), extra=self.grestags)
             time.sleep(timeinterval)
