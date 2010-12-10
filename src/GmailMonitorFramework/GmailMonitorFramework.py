@@ -44,6 +44,6 @@ class GmailMonitorFramework:
                 self.checkInbox()
                 self.log.info("Done Running Gmail Monitor", extra=self.gmontags)
             except Exception, err:
-                self.log.critical("Error Checking Inbox " + str(err) + " :: " + outstr = traceback.format_exc(), extra=self.gmontags)
+                self.log.critical("Error Checking Inbox " + str(err) + " :: " + traceback.format_exc(), extra=self.gmontags)
             time.sleep(timeinterval)
             
