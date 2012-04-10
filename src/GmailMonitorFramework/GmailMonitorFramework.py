@@ -3,6 +3,7 @@ Created on Nov 15, 2010
 
 @author: surya
 '''
+import sys
 import time
 import logging
 import os
@@ -45,5 +46,8 @@ class GmailMonitorFramework:
                 self.log.info("Done Running Gmail Monitor", extra=self.gmontags)
             except Exception, err:
                 self.log.critical("Error Checking Inbox " + str(err) + " :: " + traceback.format_exc(), extra=self.gmontags)
-            time.sleep(timeinterval)
+            if timeinterval >= 0:
+                time.sleep(timeinterval)
+            else:
+                sys.exit(0)
             
